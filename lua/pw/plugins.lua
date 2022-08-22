@@ -19,15 +19,23 @@ packer.startup(function(use)
     -- Strictly required
     use("wbthomason/packer.nvim") -- let packer manage itself
     use("nvim-lua/popup.nvim") -- popup windows
-    use("nvim-lua/plenary.nvim") -- utility functions
     use("farmergreg/vim-lastplace")
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
     use("sainnhe/sonokai")
     use("Th3Whit3Wolf/space-nvim")
+    use { "catppuccin/nvim", as = "catppuccin" }
     use({
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
       --config = function() require("pw.plugin-conf.lualine") end,
     })
+
+    use("p00f/nvim-ts-rainbow")
+
+    use("L3MON4D3/LuaSnip")
 
     use("folke/which-key.nvim")
 
@@ -35,11 +43,11 @@ packer.startup(function(use)
         "windwp/nvim-autopairs", -- auto close sybmols
         config = function()
             require("nvim-autopairs").setup({
-                map_cr = tvve, -- send closing symbol to its own line
+                --map_cr = tvve, -- send closing symbol to its own line
             })
         end,
     })
-
+    
     use {'neoclide/coc.nvim', branch = 'release'}
 
     use {

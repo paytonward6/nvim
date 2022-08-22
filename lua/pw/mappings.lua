@@ -60,6 +60,12 @@ map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
+-- TELESCOPE
+map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
+map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
+map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
+
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used)

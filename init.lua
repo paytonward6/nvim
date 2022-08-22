@@ -6,7 +6,12 @@ vim.g.clipboard = pbcopy
 vim.cmd('set clipboard+=unnamedplus')
 
 require("pw") -- load my lua configs
-vim.cmd('colorscheme sonokai')
+
+-- COLORSCHEME
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+require("catppuccin").setup()
+vim.cmd('colorscheme catppuccin')
+-- vim.cmd('colorscheme sonokai')
 
 -- Behaviors
 vim.opt.belloff = "all" -- NO BELLS!
@@ -63,4 +68,4 @@ vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
 
-vim.cmd('source $HOME/.config/nvim/coc.vim')
+vim.cmd('source $HOME/.config/nvim/lua/pw/plugin-conf/coc/coc.vim')
