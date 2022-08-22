@@ -2,6 +2,6 @@
 local no_plugins = require("pw.plugins") -- plugins
 require("pw.mappings")
 if no_plugins then return end
-require("pw.treesitter")
+require("pw.plugin-conf.treesitter")
 require("pw.nvim-tree")
 require("pw.plugin-conf.telescope")
