@@ -24,9 +24,21 @@ packer.startup(function(use)
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
+
+    -- LSP and Completion
+    use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+
+
+    -- Themes
     use("sainnhe/sonokai")
     use("Th3Whit3Wolf/space-nvim")
     use { "catppuccin/nvim", as = "catppuccin" }
+
+    -- Status Bar
     use({
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -48,7 +60,7 @@ packer.startup(function(use)
         end,
     })
     
-    use {'neoclide/coc.nvim', branch = 'release'}
+    --use {'neoclide/coc.nvim', branch = 'release'}
 
     use {
       'kyazdani42/nvim-tree.lua',

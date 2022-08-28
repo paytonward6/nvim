@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.g.python3_host_skip_check = 1
 vim.g.bulitin_lsp = true
 vim.g.clipboard = pbcopy
+vim.opt.spelllang = 'en-us'
 vim.cmd('set clipboard+=unnamedplus')
 
 require("pw") -- load my lua configs
@@ -57,7 +58,7 @@ vim.opt.foldlevelstart = 99 -- open files with all folds open
 vim.opt.splitright = true -- prefer vsplitting to the right
 vim.opt.splitbelow = true -- prefer splitting below
 vim.opt.wrap = true -- don't wrap my text
-vim.opt.textwidth = 120 -- wrap here for comments by default
+--vim.opt.textwidth = 120 -- wrap here for comments by default
 vim.opt.cursorline = true -- hightlight line cursor is on
 vim.opt.laststatus = 3 -- single global statusline
 
@@ -68,4 +69,6 @@ vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
 
-vim.cmd('source $HOME/.config/nvim/lua/pw/plugin-conf/coc/coc.vim')
+-- LSP
+
+--vim.cmd('source $HOME/.config/nvim/lua/pw/plugin-conf/coc/coc.vim')
