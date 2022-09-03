@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.g.python3_host_skip_check = 1
 vim.g.bulitin_lsp = true
 vim.g.clipboard = pbcopy
-vim.opt.spelllang = 'en-us'
+vim.opt.spelllang = 'en_us'
 vim.cmd('set clipboard+=unnamedplus')
 
 require("pw") -- load my lua configs
@@ -39,7 +39,7 @@ vim.opt.background = "dark"
 --vim.cmd("highlight! default link GitSignsDeleteLn GitSignsDelete") -- render deleted lines in preview window correctly
 -- Look and feel
 vim.opt.number = true -- numbers?
-vim.opt.relativenumber = false -- no numbers?
+vim.opt.relativenumber = true -- no numbers?
 vim.opt.signcolumn = "auto" -- show the sign column if necessary
 vim.opt.cursorline = false -- don't highlight current line
 vim.opt.list = true -- show list chars
@@ -68,6 +68,7 @@ vim.opt.ignorecase = true -- case insensitive search...
 vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
+
 
 -- LSP
 

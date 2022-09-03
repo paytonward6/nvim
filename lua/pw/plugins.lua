@@ -51,6 +51,8 @@ packer.startup(function(use)
 
     use("folke/which-key.nvim")
 
+    use("mong8se/actually.nvim")
+
     use({
         "windwp/nvim-autopairs", -- auto close sybmols
         config = function()
@@ -104,7 +106,8 @@ require('orgmode').setup_ts_grammar()
 require('orgmode').setup({
   org_agenda_files = {'~/iCloud/org/*', '~/org//*'},
   org_default_notes_file = '~/iCloud/org/notes.org',
-  win_split_mode = 'vertical'
+  win_split_mode = 'vertical',
+  org_indent_mode = 'noindent'
 })
 
 require("which-key").setup ({
