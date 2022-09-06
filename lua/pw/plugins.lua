@@ -53,6 +53,15 @@ packer.startup(function(use)
 
     use("mong8se/actually.nvim")
 
+    use {
+      'phaazon/mind.nvim',
+      branch = 'v2.2',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = function()
+        require'mind'.setup()
+      end
+    }
+
     use({
         "windwp/nvim-autopairs", -- auto close sybmols
         config = function()
