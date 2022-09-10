@@ -25,6 +25,13 @@ lspconfig.pyright.setup{
     end,
 } -- Connect to server
 
+lspconfig.texlab.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+}
+
 lspconfig.clangd.setup{
     --capabilities = capabilities,
     on_attach = function()

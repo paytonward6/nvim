@@ -20,6 +20,7 @@ packer.startup(function(use)
     use("wbthomason/packer.nvim") -- let packer manage itself
     use("nvim-lua/popup.nvim") -- popup windows
     use("farmergreg/vim-lastplace")
+    use("kyazdani42/nvim-web-devicons")
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = { {'nvim-lua/plenary.nvim'} }
@@ -54,11 +55,13 @@ packer.startup(function(use)
     use("mong8se/actually.nvim")
 
     use {
-      'phaazon/mind.nvim',
-      branch = 'v2.2',
-      requires = { 'nvim-lua/plenary.nvim' },
+      "folke/zen-mode.nvim",
       config = function()
-        require'mind'.setup()
+        require("zen-mode").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
       end
     }
 
