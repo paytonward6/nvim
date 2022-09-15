@@ -5,6 +5,7 @@ local no_plugins = require("pw.plugins")
 -- Essentials
 map('i', 'kj', '<Esc>l')
 map('i', 'OO', 'o<Esc>')
+map('n', '<C-K>', '<C-z>')
 map('n', '<Space>w', '<C-w>')
 map('n', '<Space>fs', ':w<CR>')
     -- For moving across screen lines

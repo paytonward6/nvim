@@ -28,7 +28,7 @@ require("nvim-treesitter.configs").setup({
         ensure_installed = {'org'}, -- Or run :TSUpdate org
     },
     indent = {
-        enable = false, -- buggy :/
+        enable = true, -- buggy :/
     },
     -- custom text objects
 --    textobjects = {

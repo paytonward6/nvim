@@ -75,6 +75,8 @@ packer.startup(function(use)
     })
     
     --use {'neoclide/coc.nvim', branch = 'release'}
+    --
+    use("Pocco81/true-zen.nvim")
 
     use {
       'kyazdani42/nvim-tree.lua',
