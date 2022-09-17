@@ -19,7 +19,8 @@ require("nvim-treesitter.configs").setup({
         "c",
         "rust",
         "java",
-        "fish"
+        "fish",
+        "latex"
     },
     highlight = {
         -- false will disable the whole extension

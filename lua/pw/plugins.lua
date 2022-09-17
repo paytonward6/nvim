@@ -91,10 +91,9 @@ packer.startup(function(use)
       requires = {'kyazdani42/nvim-web-devicons'}
     }
 
-    use {'nvim-orgmode/orgmode', config = function()
-        require('orgmode').setup{}
-    end
-    }
+    use('nvim-orgmode/orgmode')
+    -- Table Mode
+    use("dhruvasagar/vim-table-mode")
 
     -- Colorschemes
     use 'RRethy/nvim-base16'
@@ -118,10 +117,11 @@ require('lualine').setup{
 
 require('orgmode').setup_ts_grammar()
 require('orgmode').setup({
-  org_agenda_files = {'~/iCloud/org/*', '~/org//*'},
-  org_default_notes_file = '~/iCloud/org/notes.org',
-  win_split_mode = 'vertical',
-  org_indent_mode = 'noindent'
+    org_agenda_files = {'~/iCloud/org/*', '~/org//*'},
+    org_default_notes_file = '~/iCloud/org/notes.org',
+    win_split_mode = 'vertical',
+    org_indent_mode = 'noindent',
+    org_highlight_latex_and_related = "entities"
 })
 
 require("which-key").setup ({
@@ -192,4 +192,6 @@ require("which-key").setup ({
 })
 
 -- ORGMODE
+    -- For Table-Mode
+vim.g.table_mode_corner = '|'
 return packer_bootstrap

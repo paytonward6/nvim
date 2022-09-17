@@ -14,6 +14,7 @@ local custom_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, keymap_opts)
     vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, keymap_opts)
     vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, keymap_opts)
+    vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, keymap_opts)
 end
 
 -- Language Setups
@@ -27,6 +28,7 @@ lspconfig.pyright.setup{
 
 lspconfig.texlab.setup{
     capabilities = capabilities,
+    filetypes = {"org", "plaintex"},
     on_attach = function()
         custom_attach(client, bufnr)
     end,

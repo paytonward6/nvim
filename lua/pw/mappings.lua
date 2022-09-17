@@ -16,10 +16,10 @@ map('n', '$', 'g$')
 -- Mimic shell movements
 map('i', '<C-E>', '<ESC>A')
 map('i', '<C-A>', '<ESC>I')
-map('n', '<Space>n', ':NvimTreeOpen<CR>')
-map('n', '<Space>t', ':NvimTreeToggle<CR>')
-map('n', '<Space>f',':NvimTreeFindFile<CR>')
-map('n', '<Space><tab>t',':vsplit term://bash<CR>')
+map('n', '<leader>n', ':NvimTreeOpen<CR>')
+map('n', '<leader>e', ':NvimTreeToggle<CR>')
+map('n', '<leader>f',':NvimTreeFindFile<CR>')
+map('n', '<leader><tab>t',':vsplit term://bash<CR>')
 map('n', '<leader>h', ':noh<CR>')
 
 local map = vim.api.nvim_set_keymap
