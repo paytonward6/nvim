@@ -34,6 +34,30 @@ lspconfig.texlab.setup{
     end,
 }
 
+lspconfig.rust_analyzer.setup({
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+
 lspconfig.clangd.setup{
     --capabilities = capabilities,
     on_attach = function()
