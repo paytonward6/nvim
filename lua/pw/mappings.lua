@@ -4,6 +4,7 @@ local no_plugins = require("pw.plugins")
 
 -- Essentials
 map('i', 'kj', '<Esc>l')
+map('i', '<C-j>', '<Esc>l')
 map('i', 'OO', 'o<Esc>')
 map('n', '<C-K>', '<C-z>')
 map('n', '<Space>w', '<C-w>')
@@ -68,8 +69,11 @@ map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
 vim.keymap.set("n", "<leader>fc", '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
+vim.keymap.set("n", "<leader>ds", '<cmd>Telescope lsp_document_symbols<cr>', opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used)
 
+-- nabla.nvim
+vim.keymap.set("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>')
 

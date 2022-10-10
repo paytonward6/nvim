@@ -4,6 +4,9 @@ vim.g.python3_host_skip_check = 1
 vim.g.bulitin_lsp = true
 vim.g.clipboard = pbcopy
 vim.opt.spelllang = 'en_us'
+-- 0 cmd height
+--vim.o.ls = 0
+--vim.o.ch = 0
 vim.cmd('set clipboard+=unnamedplus')
 
 require("pw") -- load my lua configs
@@ -15,6 +18,8 @@ vim.cmd('colorscheme catppuccin')
 -- vim.cmd('colorscheme sonokai')
 
 -- Behaviors
+-- Make 'H' open help in vertical split
+vim.cmd("cnoreabbrev H vert h")
 vim.opt.belloff = "all" -- NO BELLS!
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- ins-completion how vsnip likes it
 --vim.opt.swapfile = false -- no swap files

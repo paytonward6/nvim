@@ -22,8 +22,8 @@ packer.startup(function(use)
     use("farmergreg/vim-lastplace")
     use("kyazdani42/nvim-web-devicons")
     use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
-      requires = { {'nvim-lua/plenary.nvim'} }
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { {'nvim-lua/plenary.nvim'} }
     }
 
     -- LSP and Completion
@@ -32,7 +32,7 @@ packer.startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
-
+    use 'jbyuki/nabla.nvim'
 
     -- Themes
     use("sainnhe/sonokai")
@@ -46,13 +46,12 @@ packer.startup(function(use)
       --config = function() require("pw.plugin-conf.lualine") end,
     })
 
+
     use("p00f/nvim-ts-rainbow")
 
-    use("L3MON4D3/LuaSnip")
+    --use("L3MON4D3/LuaSnip")
 
     use("folke/which-key.nvim")
-
-    use("mong8se/actually.nvim")
 
     use {
       "folke/zen-mode.nvim",
@@ -73,10 +72,8 @@ packer.startup(function(use)
             })
         end,
     })
-    
-    --use {'neoclide/coc.nvim', branch = 'release'}
-    --
-    use("Pocco81/true-zen.nvim")
+
+    use("zah/nim.vim")
 
     use {
       'kyazdani42/nvim-tree.lua',
@@ -110,10 +107,10 @@ end)
 
 
 -- LUALINE
-local custom_gruvbox = require('lualine.themes.gruvbox_dark')
-require('lualine').setup{
-    options = { theme = custom_gruvbox }, 
-}
+--local custom_gruvbox = require('lualine.themes.gruvbox_dark')
+--require('lualine').setup{
+--    options = { theme = custom_gruvbox }, 
+--}
 
 require('orgmode').setup_ts_grammar()
 require('orgmode').setup({

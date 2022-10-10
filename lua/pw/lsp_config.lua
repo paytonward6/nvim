@@ -34,6 +34,13 @@ lspconfig.texlab.setup{
     end,
 }
 
+lspconfig.jdtls.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+}
+
 lspconfig.rust_analyzer.setup({
     on_attach = function()
         custom_attach(client, bufnr)
