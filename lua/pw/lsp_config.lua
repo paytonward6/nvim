@@ -1,7 +1,7 @@
 -- Native LSP Setup
 local lspconfig = require("lspconfig")
 
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Keymaps
 local custom_attach = function(client, bufnr)
@@ -35,6 +35,13 @@ lspconfig.texlab.setup{
 }
 
 lspconfig.jdtls.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+}
+
+lspconfig.solargraph.setup{
     capabilities = capabilities,
     on_attach = function()
         custom_attach(client, bufnr)

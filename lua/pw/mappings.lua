@@ -9,11 +9,14 @@ map('i', 'OO', 'o<Esc>')
 map('n', '<C-K>', '<C-z>')
 map('n', '<Space>w', '<C-w>')
 map('n', '<Space>fs', ':w<CR>')
+
     -- For moving across screen lines
 map('n', 'k', 'gk')
 map('n', 'j', 'gj')
 map('n', '0', 'gO')
 map('n', '$', 'g$')
+
+
 -- Mimic shell movements
 map('i', '<C-E>', '<ESC>A')
 map('i', '<C-A>', '<ESC>I')
@@ -22,6 +25,11 @@ map('n', '<leader>e', ':NvimTreeToggle<CR>')
 map('n', '<leader>f',':NvimTreeFindFile<CR>')
 map('n', '<leader><tab>t',':vsplit term://bash<CR>')
 map('n', '<leader>h', ':noh<CR>')
+
+-- Command Mode Editing
+vim.keymap.set("c", "<C-A>", '<Home>')
+vim.keymap.set("c", "<C-B>", "<Left>")
+vim.keymap.set("c", "<C-F>", "<Right>")
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
