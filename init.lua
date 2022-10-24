@@ -12,7 +12,7 @@ vim.cmd('set clipboard+=unnamedplus')
 require("pw") -- load my lua configs
 
 -- COLORSCHEME
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup()
 vim.cmd('colorscheme catppuccin')
 -- vim.cmd('colorscheme sonokai')
@@ -63,13 +63,14 @@ vim.opt.foldlevelstart = 99 -- open files with all folds open
 vim.opt.splitright = true -- prefer vsplitting to the right
 vim.opt.splitbelow = true -- prefer splitting below
 vim.opt.wrap = true -- don't wrap my text
+vim.opt.linebreak = true
 --vim.opt.textwidth = 120 -- wrap here for comments by default
 vim.opt.cursorline = true -- hightlight line cursor is on
 vim.opt.laststatus = 3 -- single global statusline
 
 -- Searching
 vim.opt.wildmenu = true -- tab complete on command line
-vim.opt.ignorecase = true -- case insensitive search...
+vim.opt.ignorecase = false -- case sensitive search...
 vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type

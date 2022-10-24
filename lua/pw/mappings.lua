@@ -8,7 +8,7 @@ map('i', '<C-j>', '<Esc>l')
 map('i', 'OO', 'o<Esc>')
 map('n', '<C-K>', '<C-z>')
 map('n', '<Space>w', '<C-w>')
-map('n', '<Space>fs', ':w<CR>')
+--map('n', '<Space>fs', ':w<CR>')
 
     -- For moving across screen lines
 map('n', 'k', 'gk')
@@ -85,3 +85,10 @@ vim.keymap.set("n", "<leader>ds", '<cmd>Telescope lsp_document_symbols<cr>', opt
 -- nabla.nvim
 vim.keymap.set("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>')
 
+-- Toggle Term
+vim.keymap.set("n", "<leader>G", '<cmd> ToggleTerm<CR>')
+vim.keymap.set("t", "<C-G>", '<cmd> ToggleTerm<CR>')
+
+-- Latex
+    -- Compiles current file with Latex
+vim.keymap.set("n", "<leader>le", '<cmd>!pdflatex % <CR>')

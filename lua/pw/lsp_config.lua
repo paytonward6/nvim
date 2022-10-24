@@ -28,7 +28,7 @@ lspconfig.pyright.setup{
 
 lspconfig.texlab.setup{
     capabilities = capabilities,
-    filetypes = {"org", "plaintex"},
+    filetypes = {"org", "plaintex", "tex"},
     on_attach = function()
         custom_attach(client, bufnr)
     end,

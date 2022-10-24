@@ -51,6 +51,10 @@ packer.startup(function(use)
 
     --use("L3MON4D3/LuaSnip")
 
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup()
+    end}
+
     use("folke/which-key.nvim")
 
     use {
