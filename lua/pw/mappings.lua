@@ -21,10 +21,10 @@ map('n', '$', 'g$')
 map('i', '<C-E>', '<ESC>A')
 map('i', '<C-A>', '<ESC>I')
 map('n', '<leader>n', ':NvimTreeOpen<CR>')
-map('n', '<leader>e', ':NvimTreeToggle<CR>')
+map('n', '<leader>te', ':NvimTreeToggle<CR>')
 map('n', '<leader>f',':NvimTreeFindFile<CR>')
 map('n', '<leader><tab>t',':vsplit term://bash<CR>')
-map('n', '<leader>h', ':noh<CR>')
+map('n', '<leader>th', ':noh<CR>')
 
 -- Command Mode Editing
 vim.keymap.set("c", "<C-A>", '<Home>')
@@ -76,8 +76,9 @@ map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
 map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
 map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
-vim.keymap.set("n", "<leader>fc", '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
+vim.keymap.set("n", "<leader>dc", '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
 vim.keymap.set("n", "<leader>ds", '<cmd>Telescope lsp_document_symbols<cr>', opts)
+vim.keymap.set("n", "<leader>fc", '<cmd>Telescope commands<CR>', opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used)
@@ -91,4 +92,4 @@ vim.keymap.set("t", "<C-G>", '<cmd> ToggleTerm<CR>')
 
 -- Latex
     -- Compiles current file with Latex
-vim.keymap.set("n", "<leader>le", '<cmd>!pdflatex % <CR>')
+--vim.keymap.set("n", "<leader>le", '<cmd>!pdflatex % <CR>')

@@ -2,7 +2,6 @@
 vim.g.mapleader = " "
 vim.g.python3_host_skip_check = 1
 vim.g.bulitin_lsp = true
-vim.g.clipboard = pbcopy
 vim.opt.spelllang = 'en_us'
 -- 0 cmd height
 --vim.o.ls = 0

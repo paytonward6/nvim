@@ -26,6 +26,10 @@ packer.startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    use {"ThePrimeagen/harpoon",
+        requires = {{'nvim-lua/plenary.nvim'}}
+    }
+
     -- LSP and Completion
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
     use 'hrsh7th/nvim-cmp'
@@ -103,6 +107,10 @@ packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter", -- treesitter
         run = ":TSUpdate",
     })
+
+    use 'ThePrimeagen/vim-be-good'
+
+    use 'Olical/conjure'
 
     -- Grab all packages if we're setting up for the first time
     if packer_bootstrap then packer.sync() end

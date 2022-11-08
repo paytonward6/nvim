@@ -26,6 +26,20 @@ lspconfig.pyright.setup{
     end,
 } -- Connect to server
 
+lspconfig.tsserver.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+} -- Connect to server
+
+lspconfig.html.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+} -- Connect to server
+
 lspconfig.texlab.setup{
     capabilities = capabilities,
     filetypes = {"org", "plaintex", "tex"},
