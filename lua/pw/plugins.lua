@@ -41,7 +41,7 @@ packer.startup(function(use)
     -- Themes
     use("sainnhe/sonokai")
     use("Th3Whit3Wolf/space-nvim")
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use {"catppuccin/nvim", as = "catppuccin" }
     use 'folke/tokyonight.nvim'
     use 'RRethy/nvim-base16'
 

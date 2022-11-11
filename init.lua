@@ -11,8 +11,6 @@ vim.cmd('set clipboard+=unnamedplus')
 require("pw") -- load my lua configs
 
 -- COLORSCHEME
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-require("catppuccin").setup()
 vim.cmd('colorscheme catppuccin')
 
 -- Behaviors
@@ -68,6 +66,7 @@ vim.opt.laststatus = 3 -- single global statusline
 
 -- Searching
 vim.opt.wildmenu = true -- tab complete on command line
+vim.opt.wildmode = {"list", "full"} -- see `:h wildmode`
 vim.opt.ignorecase = false -- case sensitive search...
 vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
