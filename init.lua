@@ -15,14 +15,12 @@ vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup()
 vim.cmd('colorscheme catppuccin')
 
--- vim.cmd('colorscheme sonokai')
-
 -- Behaviors
 -- Make 'H' open help in vertical split
 vim.cmd("cnoreabbrev H vert h")
 vim.opt.belloff = "all" -- NO BELLS!
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- ins-completion how vsnip likes it
---vim.opt.swapfile = false -- no swap files
+vim.opt.swapfile = true -- no swap files
 vim.opt.inccommand = "nosplit" -- preview %s commands live as I type
 vim.opt.undofile = true -- keep track of my 'undo's between sessions
 vim.opt.grepprg = "rg --vimgrep --smart-case --no-heading" -- search with rg
@@ -55,7 +53,7 @@ vim.opt.listchars = {
     extends = "…",
     precedes = "…",
     trail = "·",
-    --multispace = "·",
+    multispace = "·",
 }
 vim.opt.scrolloff = 10 -- padding between cursor and top/bottom of window
 vim.opt.foldlevel = 0 -- allow folding the whole way down
