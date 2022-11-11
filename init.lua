@@ -14,6 +14,7 @@ require("pw") -- load my lua configs
 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup()
 vim.cmd('colorscheme catppuccin')
+
 -- vim.cmd('colorscheme sonokai')
 
 -- Behaviors

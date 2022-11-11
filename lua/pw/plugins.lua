@@ -112,6 +112,10 @@ packer.startup(function(use)
 
     use 'Olical/conjure'
 
+    use 'jbyuki/venn.nvim'
+
+    use 'folke/tokyonight.nvim'
+
     -- Grab all packages if we're setting up for the first time
     if packer_bootstrap then packer.sync() end
 end)
