@@ -1,30 +1,28 @@
 -- Mapping helper
 local map = function(mode, key, result) vim.keymap.set(mode, key, result, { noremap = true, silent = true }) end
-local no_plugins = require("pw.plugins")
 
 -- Essentials
-map('i', 'kj', '<Esc>l')
-map('i', '<C-j>', '<Esc>l')
-map('i', 'OO', 'o<Esc>')
-map('n', '<C-K>', '<C-z>')
-map('n', '<Space>w', '<C-w>')
+vim.keymap.set('i', 'kj', '<Esc>l')
+vim.keymap.set('i', '<C-j>', '<Esc>l')
+vim.keymap.set('n', '<C-K>', '<C-z>') -- allows suspension of nvim via homerow
+vim.keymap.set('n', '<Space>w', '<C-w>') -- for window management
 --map('n', '<Space>fs', ':w<CR>')
 
     -- For moving across screen lines
-map('n', 'k', 'gk')
-map('n', 'j', 'gj')
-map('n', '0', 'gO')
-map('n', '$', 'g$')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', '0', 'gO')
+vim.keymap.set('n', '$', 'g$')
 
 
 -- Mimic shell movements
-map('i', '<C-E>', '<ESC>A')
-map('i', '<C-A>', '<ESC>I')
-map('n', '<leader>n', ':NvimTreeOpen<CR>')
-map('n', '<leader>te', ':NvimTreeToggle<CR>')
-map('n', '<leader>f',':NvimTreeFindFile<CR>')
-map('n', '<leader><tab>t',':vsplit term://bash<CR>')
-map('n', '<leader>th', ':noh<CR>')
+vim.keymap.set('i', '<C-E>', '<ESC>A')
+vim.keymap.set('i', '<C-A>', '<ESC>I')
+vim.keymap.set('n', '<leader>n', ':NvimTreeOpen<CR>')
+vim.keymap.set('n', '<leader>te', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>f',':NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<leader><tab>t',':vsplit term://bash<CR>')
+vim.keymap.set('n', '<leader>th', ':noh<CR>')
 
 -- Command Mode Editing
 vim.keymap.set("c", "<C-A>", '<Home>')
@@ -34,54 +32,43 @@ vim.keymap.set("c", "<C-F>", "<Right>")
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
--- Move to previous/next
-map('n', '<leader>{', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<leader>}', '<Cmd>BufferNext<CR>', opts)
--- Re-order to previous/next
---map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+-- Buffer Keymaps
+-- Move to previous/next buffer
+vim.keymap.set('n', '<leader>{', '<Cmd>BufferPrevious<CR>', opts)
+vim.keymap.set('n', '<leader>}', '<Cmd>BufferNext<CR>', opts)
+
 -- Goto buffer in position...
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+    -- A is the option/alt key
+vim.keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
+vim.keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
+vim.keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
+vim.keymap.set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
+vim.keymap.set('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
+vim.keymap.set('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
+vim.keymap.set('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
+vim.keymap.set('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
+vim.keymap.set('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
+vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 -- Pin/unpin buffer
-map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
+vim.keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
-map('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
--- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
+vim.keymap.set('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
+vim.keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
+
 -- Sort automatically by...
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+vim.keymap.set('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+vim.keymap.set('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
+vim.keymap.set('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
+vim.keymap.set('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 -- TELESCOPE
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
-map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
 vim.keymap.set("n", "<leader>dc", '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
 vim.keymap.set("n", "<leader>ds", '<cmd>Telescope lsp_document_symbols<cr>', opts)
 vim.keymap.set("n", "<leader>fc", '<cmd>Telescope commands<CR>', opts)
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used)
 
 -- nabla.nvim
 vim.keymap.set("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>')
@@ -90,7 +77,6 @@ vim.keymap.set("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>')
 vim.keymap.set("n", "<leader>G", '<cmd> ToggleTerm<CR>')
 vim.keymap.set("t", "<C-G>", '<cmd> ToggleTerm<CR>')
 
--- Venn.nvim
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
     local venn_enabled = vim.inspect(vim.b.venn_enabled)
@@ -110,9 +96,6 @@ function _G.Toggle_venn()
         vim.b.venn_enabled = nil
     end
 end
--- toggle keymappings for venn using <leader>v
+    -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>tv', ":lua Toggle_venn()<CR>", { noremap = true})
 
--- Latex
-    -- Compiles current file with Latex
---vim.keymap.set("n", "<leader>le", '<cmd>!pdflatex % <CR>')
