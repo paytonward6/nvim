@@ -21,4 +21,3 @@ ls.add_snippets(nil, {
         }),
     },
 })
-
