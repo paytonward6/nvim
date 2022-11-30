@@ -30,6 +30,8 @@ packer.startup(function(use)
         requires = {{'nvim-lua/plenary.nvim'}}
     }
 
+    use "nvim-telescope/telescope-file-browser.nvim"
+
     -- LSP and Completion
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
     use 'hrsh7th/nvim-cmp'
@@ -72,6 +74,8 @@ packer.startup(function(use)
 
     use("zah/nim.vim") -- syntax highlighting for nim
 
+    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+
     use {
       'kyazdani42/nvim-tree.lua',
       requires = {
@@ -101,6 +105,10 @@ packer.startup(function(use)
     use 'Olical/conjure' -- interactive code evaluation (for LISPs and Python)
 
     use 'jbyuki/venn.nvim' -- for drawing UTF-8 diagrams in nvim
+
+    use 'lukas-reineke/indent-blankline.nvim'
+
+    --use ' vimwiki/vimwiki'|
 
     -- Grab all packages if we're setting up for the first time
     if packer_bootstrap then packer.sync() end

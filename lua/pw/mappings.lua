@@ -6,11 +6,12 @@ vim.keymap.set('i', 'kj', '<Esc>l')
 vim.keymap.set('i', '<C-j>', '<Esc>l')
 vim.keymap.set('n', '<C-K>', '<C-z>') -- allows suspension of nvim via homerow
 vim.keymap.set('n', '<Space>w', '<C-w>') -- for window management
+vim.keymap.set('n', '<C-s>', '<Cmd>update<CR>')
 --map('n', '<Space>fs', ':w<CR>')
 
     -- For moving across screen lines
-vim.keymap.set('n', 'k', 'gk')
-vim.keymap.set('n', 'j', 'gj')
+--vim.keymap.set('n', 'k', 'gk')
+--vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', '0', 'gO')
 vim.keymap.set('n', '$', 'g$')
 
@@ -18,16 +19,13 @@ vim.keymap.set('n', '$', 'g$')
 -- Mimic shell movements
 vim.keymap.set('i', '<C-E>', '<ESC>A')
 vim.keymap.set('i', '<C-A>', '<ESC>I')
+
+-- NvimTree
 vim.keymap.set('n', '<leader>n', ':NvimTreeOpen<CR>')
 vim.keymap.set('n', '<leader>te', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<leader>f',':NvimTreeFindFile<CR>')
+--vim.keymap.set('n', '<leader>f',':NvimTreeFindFile<CR>')
 vim.keymap.set('n', '<leader><tab>t',':vsplit term://bash<CR>')
 vim.keymap.set('n', '<leader>th', ':noh<CR>')
-
--- Command Mode Editing
-vim.keymap.set("c", "<C-A>", '<Home>')
-vim.keymap.set("c", "<C-B>", "<Left>")
-vim.keymap.set("c", "<C-F>", "<Right>")
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -69,6 +67,7 @@ vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
 vim.keymap.set("n", "<leader>dc", '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
 vim.keymap.set("n", "<leader>ds", '<cmd>Telescope lsp_document_symbols<cr>', opts)
 vim.keymap.set("n", "<leader>fc", '<cmd>Telescope commands<CR>', opts)
+vim.keymap.set("n", "<leader>fk", '<cmd>Telescope file_browser<CR>', opts)
 
 -- nabla.nvim
 vim.keymap.set("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>')
@@ -99,3 +98,6 @@ end
     -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>tv', ":lua Toggle_venn()<CR>", { noremap = true})
 
+-- Latex
+    -- Compiles current file with Latex
+--vim.keymap.set("n", "<leader>le", '<cmd>!pdflatex % <CR>')

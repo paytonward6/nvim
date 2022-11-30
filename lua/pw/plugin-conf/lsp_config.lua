@@ -1,4 +1,4 @@
--- Native LSP Setup
+-- || Native LSP Setup ||
 local lspconfig = require("lspconfig")
 
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -26,8 +26,17 @@ lspconfig.pyright.setup{
     end,
 } -- Connect to server
 
+
 lspconfig.tsserver.setup{
     capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+} -- Connect to server
+
+lspconfig.cssls.setup{
+    capabilities = capabilities,
+    filetypes={"css", "scss", "less", "html"},
     on_attach = function()
         custom_attach(client, bufnr)
     end,

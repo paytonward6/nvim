@@ -1,5 +1,6 @@
 -- Essentials
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.python3_host_skip_check = 1
 vim.g.bulitin_lsp = true
 vim.opt.spelllang = 'en_us'
@@ -12,6 +13,7 @@ require("pw") -- load my lua configs
 
 -- COLORSCHEME
 vim.cmd('colorscheme catppuccin')
+
 
 -- Behaviors
 -- Make 'H' open help in vertical split
@@ -40,7 +42,7 @@ vim.opt.background = "dark"
 --vim.cmd("highlight! default link GitSignsDeleteLn GitSignsDelete") -- render deleted lines in preview window correctly
 -- Look and feel
 vim.opt.number = true -- numbers?
-vim.opt.relativenumber = true -- no numbers?
+vim.opt.relativenumber = true
 vim.opt.signcolumn = "auto" -- show the sign column if necessary
 vim.opt.cursorline = false -- don't highlight current line
 vim.opt.list = true -- show list chars
@@ -51,7 +53,7 @@ vim.opt.listchars = {
     extends = "…",
     precedes = "…",
     trail = "·",
-    multispace = "·",
+    --multispace = "·",
 }
 vim.opt.scrolloff = 10 -- padding between cursor and top/bottom of window
 vim.opt.foldlevel = 0 -- allow folding the whole way down

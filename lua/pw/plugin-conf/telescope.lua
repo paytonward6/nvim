@@ -1,3 +1,4 @@
+local fb_actions = require "telescope".extensions.file_browser.actions
 require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
@@ -25,12 +26,17 @@ require('telescope').setup{
   },
   extensions = {
     -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
+     --file_browser = {
+     --  mappings = {
+     --       ["i"] = {
+     --           ["C-r"] = fb_actions.rename({0}),
+     --       }
+     --   },
+     --},
     -- please take a look at the readme of the extension you want to configure
-  }
+  },
   --themes = {
   --    get_ivy = true
   --}
 }
+require("telescope").load_extension "file_browser"
