@@ -12,8 +12,8 @@ vim.keymap.set('n', '<C-s>', '<Cmd>update<CR>')
     -- For moving across screen lines
 --vim.keymap.set('n', 'k', 'gk')
 --vim.keymap.set('n', 'j', 'gj')
-vim.keymap.set('n', '0', 'gO')
-vim.keymap.set('n', '$', 'g$')
+--vim.keymap.set('n', '0', 'gO')
+--vim.keymap.set('n', '$', 'g$')
 
 
 -- Mimic shell movements
@@ -22,7 +22,7 @@ vim.keymap.set('i', '<C-A>', '<ESC>I')
 
 -- NvimTree
 vim.keymap.set('n', '<leader>n', ':NvimTreeOpen<CR>')
-vim.keymap.set('n', '<leader>te', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 --vim.keymap.set('n', '<leader>f',':NvimTreeFindFile<CR>')
 vim.keymap.set('n', '<leader><tab>t',':vsplit term://bash<CR>')
 vim.keymap.set('n', '<leader>th', ':noh<CR>')

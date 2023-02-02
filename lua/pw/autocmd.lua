@@ -14,6 +14,20 @@ vim.api.nvim_create_autocmd({"BufRead"}, {
     callback = function() vim.keymap.set("n", "<leader>le", '<cmd>update | !sass % <CR>') end
 })
 
+--------
+local view_filetypes = {"*.md", "*.rs"}
+
+vim.api.nvim_create_autocmd({"BufWinLeave"}, {
+    pattern = view_filetypes,
+    command = "mkview",
+})
+
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+    pattern = view_filetypes,
+    command = "loadview",
+})
+--------
+
 ---- Compiles latex and opens corresponding pdf output
 --vim.api.nvim_create_autocmd({"BufWrite"}, {
 --    pattern = {"*.tex"},
@@ -33,7 +47,13 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 
 vim.api.nvim_create_autocmd({"BufRead"}, {
     pattern = {"*.tex"},
-    callback = function() vim.keymap.set("n", "<leader>le", '<cmd>update | !pdflatex % <CR>') end
+    callback = function() vim.keymap.set("n", "<leader>le", '<cmd>update | !pdflatex % && open -a Preview %:r.pdf<CR>') end
+})
+
+
+vim.api.nvim_create_autocmd({"BufRead"}, {
+    pattern = {"*.md"},
+    callback = function() vim.keymap.set("n", "<leader>le", '<cmd>update | !pandoc % -o %:r.pdf && open -a Preview %:r.pdf<CR>') end
 })
 
 vim.api.nvim_create_autocmd({"BufRead"}, {

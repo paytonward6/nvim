@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.python3_host_skip_check = 1
 vim.g.bulitin_lsp = true
+vim.g.markdown_folding = 1
 vim.opt.spelllang = 'en_us'
 -- 0 cmd height
 --vim.o.ls = 0
@@ -55,8 +56,8 @@ vim.opt.listchars = {
     trail = "·",
     --multispace = "·",
 }
-vim.opt.scrolloff = 10 -- padding between cursor and top/bottom of window
-vim.opt.foldlevel = 0 -- allow folding the whole way down
+vim.opt.scrolloff = 5 -- padding between cursor and top/bottom of window
+vim.opt.foldlevel = 1 -- allow folding the whole way down
 vim.opt.foldlevelstart = 99 -- open files with all folds open
 vim.opt.splitright = true -- prefer vsplitting to the right
 vim.opt.splitbelow = true -- prefer splitting below

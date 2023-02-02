@@ -102,7 +102,7 @@ packer.startup(function(use)
 
     use 'ThePrimeagen/vim-be-good' -- for nvim practice
 
-    use 'Olical/conjure' -- interactive code evaluation (for LISPs and Python)
+    --use 'Olical/conjure' -- interactive code evaluation (for LISPs and Python)
 
     use 'jbyuki/venn.nvim' -- for drawing UTF-8 diagrams in nvim
 
