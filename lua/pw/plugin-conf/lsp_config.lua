@@ -65,6 +65,7 @@ lspconfig.jdtls.setup{
 }
 
 lspconfig.solargraph.setup{
+    filetypes = {"*.rb"},
     capabilities = capabilities,
     on_attach = function()
         custom_attach(client, bufnr)
