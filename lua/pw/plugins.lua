@@ -33,11 +33,17 @@ packer.startup(function(use)
     use "nvim-telescope/telescope-file-browser.nvim"
 
     -- LSP and Completion
-    use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
     use 'hrsh7th/nvim-cmp'
+    use "mfussenegger/nvim-dap"
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
+
     use 'jbyuki/nabla.nvim'
 
     -- Themes
