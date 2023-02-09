@@ -40,6 +40,8 @@ vim.opt.softtabstop = 4 -- <Tab> behaves as 4 spaces when editing
 -- Colors
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+vim.cmd('highlight VertSplit guifg=#aab4be')
+
 --vim.cmd("highlight! default link GitSignsDeleteLn GitSignsDelete") -- render deleted lines in preview window correctly
 -- Look and feel
 vim.opt.number = true -- numbers?
@@ -76,6 +78,5 @@ vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
 
 
--- LSP
 
 --vim.cmd('source $HOME/.config/nvim/lua/pw/plugin-conf/coc/coc.vim')

@@ -43,6 +43,7 @@ packer.startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
+    use 'rcarriga/nvim-dap-ui'
 
     use 'jbyuki/nabla.nvim'
 
@@ -50,7 +51,7 @@ packer.startup(function(use)
     use("sainnhe/sonokai")
     use("Th3Whit3Wolf/space-nvim")
     use {"catppuccin/nvim", as = "catppuccin" }
-    use 'folke/tokyonight.nvim'
+
     use 'RRethy/nvim-base16'
 
     -- Status Bar
@@ -78,7 +79,10 @@ packer.startup(function(use)
         end,
     })
 
+
     use("zah/nim.vim") -- syntax highlighting for nim
+
+    --use 'simrat39/rust-tools.nvim'
 
     use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 

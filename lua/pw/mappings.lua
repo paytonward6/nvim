@@ -7,6 +7,7 @@ vim.keymap.set('i', '<C-j>', '<Esc>l')
 vim.keymap.set('n', '<C-K>', '<C-z>') -- allows suspension of nvim via homerow
 vim.keymap.set('n', '<Space>w', '<C-w>') -- for window management
 vim.keymap.set('n', '<C-s>', '<Cmd>update<CR>')
+vim.keymap.set('n', '<leader>lsp', '<Cmd>LspStart<CR>')
 --map('n', '<Space>fs', ':w<CR>')
 
     -- For moving across screen lines
@@ -54,10 +55,10 @@ vim.keymap.set('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
 vim.keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 
 -- Sort automatically by...
-vim.keymap.set('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-vim.keymap.set('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-vim.keymap.set('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-vim.keymap.set('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+--vim.keymap.set('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+--vim.keymap.set('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
+--vim.keymap.set('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
+--vim.keymap.set('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 -- TELESCOPE
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
@@ -68,6 +69,31 @@ vim.keymap.set("n", "<leader>dc", '<cmd>Telescope current_buffer_fuzzy_find<cr>'
 vim.keymap.set("n", "<leader>ds", '<cmd>Telescope lsp_document_symbols<cr>', opts)
 vim.keymap.set("n", "<leader>fc", '<cmd>Telescope commands<CR>', opts)
 vim.keymap.set("n", "<leader>fk", '<cmd>Telescope file_browser<CR>', opts)
+
+-- Debugger
+--vim.keymap.set('n', '<leader>c', function() require('dap').continue() end)
+--vim.keymap.set('n', '<leader>n', function() require('dap').step_over() end)
+--vim.keymap.set('n', '<leader>j', function() require('dap').step_into() end)
+--vim.keymap.set('n', '<leader>step_out', function() require('dap').step_out() end)
+--vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+--vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+--vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+--vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+--vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+--vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+--  require('dap.ui.widgets').hover()
+--end)
+--vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+--  require('dap.ui.widgets').preview()
+--end)
+--vim.keymap.set('n', '<Leader>df', function()
+--  local widgets = require('dap.ui.widgets')
+--  widgets.centered_float(widgets.frames)
+--end)
+--vim.keymap.set('n', '<Leader>ds', function()
+--  local widgets = require('dap.ui.widgets')
+--  widgets.centered_float(widgets.scopes)
+--end)
 
 -- nabla.nvim
 vim.keymap.set("n", "<leader>p", '<cmd>lua require("nabla").popup()<CR>')
