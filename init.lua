@@ -12,8 +12,14 @@ vim.cmd('set clipboard+=unnamedplus')
 
 require("pw") -- load my lua configs
 
+-- Colors
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+
 -- COLORSCHEME
-vim.cmd('colorscheme catppuccin')
+--vim.cmd('colorscheme catppuccin')
+vim.cmd('colorscheme tokyonight-moon')
+vim.cmd('highlight VertSplit guifg=#aab4be')
 
 
 -- Behaviors
@@ -37,10 +43,6 @@ vim.opt.shiftwidth = 4 -- >>, << shift line by 4 spaces
 vim.opt.tabstop = 4 -- <Tab> appears as 4 spaces
 vim.opt.softtabstop = 4 -- <Tab> behaves as 4 spaces when editing
 
--- Colors
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
-vim.cmd('highlight VertSplit guifg=#aab4be')
 
 --vim.cmd("highlight! default link GitSignsDeleteLn GitSignsDelete") -- render deleted lines in preview window correctly
 -- Look and feel
@@ -76,7 +78,3 @@ vim.opt.ignorecase = false -- case sensitive search...
 vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
-
-
-
---vim.cmd('source $HOME/.config/nvim/lua/pw/plugin-conf/coc/coc.vim')

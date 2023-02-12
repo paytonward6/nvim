@@ -79,6 +79,7 @@ packer.startup(function(use)
         end,
     })
 
+    use 'folke/tokyonight.nvim'
 
     use("zah/nim.vim") -- syntax highlighting for nim
 

@@ -124,7 +124,7 @@ lspconfig.bashls.setup({
     on_attach = custom_attach,
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
     autostart = false,
     capabilities = capabilities,
     on_attach = custom_attach,
