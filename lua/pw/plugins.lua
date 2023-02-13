@@ -79,6 +79,10 @@ packer.startup(function(use)
         end,
     })
 
+    use 'petertriho/nvim-scrollbar'
+
+    use 'echasnovski/mini.nvim'
+
     use 'folke/tokyonight.nvim'
 
     use("zah/nim.vim") -- syntax highlighting for nim
