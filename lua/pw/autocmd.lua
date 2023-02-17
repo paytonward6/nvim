@@ -26,6 +26,11 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
     pattern = view_filetypes,
     command = "loadview",
 })
+
+vim.api.nvim_create_autocmd({"FileType"}, {
+    pattern = "netrw",
+    command = "set relativenumber",
+})
 --------
 
 ---- Compiles latex and opens corresponding pdf output

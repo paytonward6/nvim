@@ -4,7 +4,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       disable_netrw = false,
       hijack_cursor = false,
       hijack_netrw = true,
-      hijack_unnamed_buffer_when_opening = false,
+      hijack_unnamed_buffer_when_opening = true,
       ignore_buffer_on_setup = false,
       open_on_setup = false,
       open_on_setup_file = false,
@@ -24,7 +24,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         side = "left",
         preserve_window_proportions = false,
         number = false,
-        relativenumber = false,
+        relativenumber = true,
         signcolumn = "yes",
         mappings = {
           custom_only = false,

@@ -6,10 +6,16 @@ vim.g.python3_host_skip_check = 1
 vim.g.bulitin_lsp = true
 vim.g.markdown_folding = 1
 vim.opt.spelllang = 'en_us'
--- 0 cmd height
---vim.o.ls = 0
---vim.o.ch = 0
-vim.cmd('set clipboard+=unnamedplus')
+vim.opt.filetype = "on"
+
+-- Netrw
+vim.g.netrw_browse_split = 3
+vim.g.netrw_winsize = 75
+vim.g.netrw_preview = 1
+vim.g.sort_by = "exten"
+vim.g.netrw_banner = 0
+
+vim.cmd("set clipboard+=unnamedplus")
 
 require("pw") -- load my lua configs
 
