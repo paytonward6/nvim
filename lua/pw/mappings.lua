@@ -23,7 +23,8 @@ vim.keymap.set('i', '<C-A>', '<ESC>I')
 
 -- NvimTree
 --vim.keymap.set('n', '<leader>n', ':NvimTreeOpen<CR>')
-vim.keymap.set('n', '<leader>e', '<Cmd>E<CR>')
+--vim.keymap.set('n', '<leader>e', '<Cmd>E<CR>')
+vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
 --vim.keymap.set('n', '<leader>f',':NvimTreeFindFile<CR>')
 vim.keymap.set('n', '<leader><tab>t',':vsplit term://bash<CR>')
 vim.keymap.set('n', '<leader>th', ':noh<CR>')

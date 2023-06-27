@@ -9,11 +9,11 @@ vim.opt.spelllang = 'en_us'
 vim.opt.filetype = "on"
 
 -- Netrw
-vim.g.netrw_browse_split = 3
-vim.g.netrw_winsize = 75
-vim.g.netrw_preview = 1
-vim.g.sort_by = "exten"
-vim.g.netrw_banner = 0
+--vim.g.netrw_browse_split = 3
+--vim.g.netrw_winsize = 75
+--vim.g.netrw_preview = 1
+--vim.g.sort_by = "exten"
+--vim.g.netrw_banner = 0
 
 vim.cmd("set clipboard+=unnamedplus")
 
@@ -85,3 +85,5 @@ vim.opt.ignorecase = false -- case sensitive search...
 vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
+
+--vim.cmd('autocmd BufNewFile,BufRead *.typ set filetype=typst')

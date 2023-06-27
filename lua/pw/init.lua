@@ -4,6 +4,7 @@ if no_plugins then return end
 require("pw.plugin-conf.mini")
 require("pw.plugin-conf.treesitter")
 --require("pw.plugin-conf.nvim-tree")
+require("pw.plugin-conf.neo-tree")
 require("pw.plugin-conf.telescope")
 --require("pw.plugin-conf.lsp_config")
 require("pw.plugin-conf.nvm-cmp")

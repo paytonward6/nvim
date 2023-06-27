@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd({"BufRead"}, {
 })
 
 --------
-local view_filetypes = {"*.md", "*.rs"}
+local view_filetypes = {"*.md"}
 
 vim.api.nvim_create_autocmd({"BufWinLeave"}, {
     pattern = view_filetypes,
@@ -54,7 +54,6 @@ vim.api.nvim_create_autocmd({"BufRead"}, {
     pattern = {"*.tex"},
     callback = function() vim.keymap.set("n", "<leader>le", '<cmd>update | !pdflatex % && open -a Preview %:r.pdf<CR>') end
 })
-
 
 vim.api.nvim_create_autocmd({"BufRead"}, {
     pattern = {"*.md"},

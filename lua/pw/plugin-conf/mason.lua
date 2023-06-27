@@ -118,6 +118,23 @@ lspconfig.clangd.setup{
     end,
 }
 
+
+lspconfig.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+  }
+
 lspconfig.bashls.setup({
     autostart = false,
     capabilities = capabilities,
