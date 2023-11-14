@@ -87,3 +87,5 @@ vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
 
 --vim.cmd('autocmd BufNewFile,BufRead *.typ set filetype=typst')
+x = {1,2,3,4}
+

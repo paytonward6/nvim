@@ -4,6 +4,21 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     command = "setlocal spell spelllang=en_us",
 })
 
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+    pattern = "*.j2",
+    callback = function()
+        local fname = vim.api.nvim_exec2("echo expand('%:t')", {output = true}).output
+
+        -- Grab actual filetype
+        fname = string.sub(fname, 1, #fname - 3)
+        local ftype = vim.filetype.match({filename = fname})
+
+        if ftype ~= nil then
+            vim.cmd("silent! set filetype=" .. ftype)
+        end
+    end
+})
+
 vim.api.nvim_create_autocmd({"BufRead"}, {
     pattern = {"*.tex"},
     callback = function() vim.keymap.set("n", "<leader>le", '<cmd>update | !pdflatex % <CR>') end
