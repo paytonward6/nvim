@@ -1,3 +1,125 @@
+local plugins = {
+    "wbthomason/packer.nvim",
+    "nvim-lua/popup.nvim", -- popup windows
+    "farmergreg/vim-lastplace",
+    "kyazdani42/nvim-web-devicons",
+    {
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    },
+
+    'Olical/conjure',
+
+    {
+        'stevearc/oil.nvim', config = function()
+            require("oil").setup()
+        end
+    },
+    {
+        "ThePrimeagen/harpoon",
+        requires = {{'nvim-lua/plenary.nvim'}}
+    },
+
+    'kaarmu/typst.vim',
+    "nvim-telescope/telescope-file-browser.nvim",
+
+    -- LSP and Completion
+    {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    },
+    'hrsh7th/nvim-cmp',
+    "mfussenegger/nvim-dap",
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'rcarriga/nvim-dap-ui',
+
+    'jbyuki/nabla.nvim',
+
+    -- Themes
+    "sainnhe/sonokai",
+    "Th3Whit3Wolf/space-nvim",
+    'RRethy/nvim-base16',
+    {
+        "catppuccin/nvim", as = "catppuccin"
+    },
+    -- Status Bar
+    {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    },
+
+    "p00f/nvim-ts-rainbow", -- rainbow parentheses, brackets, braces
+
+    --use("L3MON4D3/LuaSnip")
+
+    {
+      "akinsho/toggleterm.nvim", tag = '*', config = function()
+          require("toggleterm").setup()
+      end
+    },
+
+    "folke/which-key.nvim",
+
+    {
+        "windwp/nvim-autopairs", -- auto close sybmols
+        config = function()
+            require("nvim-autopairs").setup({
+                --map_cr = tvve, -- send closing symbol to its own line
+            })
+        end,
+    },
+
+
+    'petertriho/nvim-scrollbar',
+
+    'echasnovski/mini.nvim',
+
+    'folke/tokyonight.nvim',
+
+    "zah/nim.vim",-- syntax highlighting for nim
+
+    --use 'simrat39/rust-tools.nvim'
+
+    {'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }},
+
+    --use {
+    --  'kyazdani42/nvim-tree.lua',
+    --  requires = {
+    --    'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    --  },
+    --  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    --}
+
+    {
+      'romgrk/barbar.nvim',
+      requires = {'kyazdani42/nvim-web-devicons'}
+    },
+
+    'nvim-orgmode/orgmode',
+
+    -- Table Mode
+    "dhruvasagar/vim-table-mode",
+
+    -- 0.5 features (lsp + treesitter)
+    {
+        "nvim-treesitter/nvim-treesitter", -- treesitter
+        run = ":TSUpdate",
+    },
+
+    'ThePrimeagen/vim-be-good', -- for nvim practice
+
+    --use 'Olical/conjure' -- interactive code evaluation (for LISPs and Python)
+
+    'jbyuki/venn.nvim', -- for drawing UTF-8 diagrams in nvim
+
+    'lukas-reineke/indent-blankline.nvim',
+
+    --use ' vimwiki/vimwiki'|
+}
+
 -- Bootstrap packer if necessary
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_bootstrap = false
@@ -16,123 +138,9 @@ packer.init({
 })
 
 packer.startup(function(use)
-    -- Strictly required
-    use("wbthomason/packer.nvim") -- let packer manage itself
-    use("nvim-lua/popup.nvim") -- popup windows
-    use("farmergreg/vim-lastplace")
-    use("kyazdani42/nvim-web-devicons")
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    use 'Olical/conjure'
-
-    use ({'stevearc/oil.nvim', config = function()
-	require("oil").setup()
-    end})
-
-    use {"ThePrimeagen/harpoon",
-        requires = {{'nvim-lua/plenary.nvim'}}
-    }
-
-    use ({'kaarmu/typst.vim'})
-
-    use "nvim-telescope/telescope-file-browser.nvim"
-
-    -- LSP and Completion
-    use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-    }
-    use 'hrsh7th/nvim-cmp'
-    use "mfussenegger/nvim-dap"
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'rcarriga/nvim-dap-ui'
-
-    use 'jbyuki/nabla.nvim'
-
-    -- Themes
-    use("sainnhe/sonokai")
-    use("Th3Whit3Wolf/space-nvim")
-    use {"catppuccin/nvim", as = "catppuccin" }
-
-    use 'RRethy/nvim-base16'
-
-    -- Status Bar
-    use({
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    })
-
-    use("p00f/nvim-ts-rainbow") -- rainbow parentheses, brackets, braces
-
-    --use("L3MON4D3/LuaSnip")
-
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-    end}
-
-    use("folke/which-key.nvim")
-
-    use({
-        "windwp/nvim-autopairs", -- auto close sybmols
-        config = function()
-            require("nvim-autopairs").setup({
-                --map_cr = tvve, -- send closing symbol to its own line
-            })
-        end,
-    })
-
-
-    use 'petertriho/nvim-scrollbar'
-
-    use 'echasnovski/mini.nvim'
-
-    use 'folke/tokyonight.nvim'
-
-    use("zah/nim.vim") -- syntax highlighting for nim
-
-    --use 'simrat39/rust-tools.nvim'
-
-    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
-
-    --use {
-    --  'kyazdani42/nvim-tree.lua',
-    --  requires = {
-    --    'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    --  },
-    --  tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    --}
-
-    use {
-      'romgrk/barbar.nvim',
-      requires = {'kyazdani42/nvim-web-devicons'}
-    }
-
-    use('nvim-orgmode/orgmode')
-
-    -- Table Mode
-    use("dhruvasagar/vim-table-mode")
-
-    -- 0.5 features (lsp + treesitter)
-    use({
-        "nvim-treesitter/nvim-treesitter", -- treesitter
-        run = ":TSUpdate",
-    })
-
-    use 'ThePrimeagen/vim-be-good' -- for nvim practice
-
-    --use 'Olical/conjure' -- interactive code evaluation (for LISPs and Python)
-
-    use 'jbyuki/venn.nvim' -- for drawing UTF-8 diagrams in nvim
-
-    use 'lukas-reineke/indent-blankline.nvim'
-
-    --use ' vimwiki/vimwiki'|
+    for _, plugin in pairs(plugins) do
+        use(plugin)
+    end
 
     -- Grab all packages if we're setting up for the first time
     if packer_bootstrap then packer.sync() end
