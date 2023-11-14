@@ -2,6 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 
 local lspconfig = require("lspconfig")
+local util = require("lspconfig/util")
 -- After setting up mason-lspconfig you may set up servers via lspconfig
 -- require("lspconfig").sumneko_lua.setup {}
 -- require("lspconfig").rust_analyzer.setup {}
@@ -28,6 +29,20 @@ end
 -- Language Setups
 
 lspconfig.pyright.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+} -- Connect to server
+
+lspconfig.r_language_server.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+} -- Connect to server
+
+lspconfig.clojure_lsp.setup{
     capabilities = capabilities,
     on_attach = function()
         custom_attach(client, bufnr)
@@ -120,8 +135,13 @@ lspconfig.clangd.setup{
 
 
 lspconfig.gopls.setup {
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
+    root_idr = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
       gopls = {
         analyses = {
@@ -130,13 +150,16 @@ lspconfig.gopls.setup {
         staticcheck = true,
       },
     },
-    on_attach = function()
-        custom_attach(client, bufnr)
-    end,
   }
 
 lspconfig.bashls.setup({
     autostart = false,
+    capabilities = capabilities,
+    on_attach = custom_attach,
+})
+
+lspconfig.tailwindcss.setup({
+    filetypes = {"html", "js", "css"},
     capabilities = capabilities,
     on_attach = custom_attach,
 })

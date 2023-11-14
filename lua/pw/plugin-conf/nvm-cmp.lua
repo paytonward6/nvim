@@ -52,15 +52,16 @@ if not cmp then return end
       { name = 'buffer' }
     }
 })
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+
+---- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+--  cmp.setup.cmdline(':', {
+--    mapping = cmp.mapping.preset.cmdline(),
+--    sources = cmp.config.sources({
+--      { name = 'path' }
+--    }, {
+--      { name = 'cmdline' }
+--    })
+--  })
 
   -- Setup lspconfig.
   --local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

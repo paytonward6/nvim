@@ -22,9 +22,15 @@ packer.startup(function(use)
     use("farmergreg/vim-lastplace")
     use("kyazdani42/nvim-web-devicons")
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+
+    use 'Olical/conjure'
+
+    use ({'stevearc/oil.nvim', config = function()
+	require("oil").setup()
+    end})
 
     use {"ThePrimeagen/harpoon",
         requires = {{'nvim-lua/plenary.nvim'}}
@@ -81,18 +87,6 @@ packer.startup(function(use)
         end,
     })
 
-    -- Unless you are still migrating, remove the deprecated commands from v1.x
-    vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
-    use {
-      "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = { 
-          "nvim-lua/plenary.nvim",
-          "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-          "MunifTanjim/nui.nvim",
-        }
-    }
 
     use 'petertriho/nvim-scrollbar'
 

@@ -16,15 +16,17 @@ vim.keymap.set('n', '<leader>lsp', '<Cmd>LspStart<CR>')
 --vim.keymap.set('n', '0', 'gO')
 --vim.keymap.set('n', '$', 'g$')
 
+vim.cmd('let g:conjure#mapping#doc_word  = v:false')
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Mimic shell movements
-vim.keymap.set('i', '<C-E>', '<ESC>A')
+--vim.keymap.set('i', '<C-E>', '<ESC>A')
 vim.keymap.set('i', '<C-A>', '<ESC>I')
 
 -- NvimTree
 --vim.keymap.set('n', '<leader>n', ':NvimTreeOpen<CR>')
 --vim.keymap.set('n', '<leader>e', '<Cmd>E<CR>')
-vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
 --vim.keymap.set('n', '<leader>f',':NvimTreeFindFile<CR>')
 vim.keymap.set('n', '<leader><tab>t',':vsplit term://bash<CR>')
 vim.keymap.set('n', '<leader>th', ':noh<CR>')

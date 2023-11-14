@@ -26,7 +26,6 @@ lspconfig.pyright.setup{
     end,
 } -- Connect to server
 
-
 lspconfig.tsserver.setup{
     capabilities = capabilities,
     on_attach = function()
