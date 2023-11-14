@@ -14,6 +14,16 @@ local keymaps = {
     {'n', '<leader>th', ':noh<CR>'},
     {"n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }},
 
+    {"n", "<leader>gs", "<Cmd>vertical Git<CR>"},
+
+    {"n", "<leader>ms", "<Cmd>LspStart<CR>"},
+    {"n", "<leader>mr", "<Cmd>LspRestart<CR>"},
+    {"n", "<leader>mh", "<Cmd>LspStop<CR>"},
+    {"n", "<leader>mi", "<Cmd>LspInfo<CR>"},
+
+    {"n", "<leader>vm", "<Cmd>mkview<CR>"},
+    {"n", "<leader>vl", "<Cmd>loadview<CR>"},
+
     -- Buffer Keymaps
     -- Move to previous/next buffer
     {'n', '<leader>{', '<Cmd>BufferPrevious<CR>', opts},
