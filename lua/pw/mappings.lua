@@ -2,6 +2,8 @@
 local map = function(mode, key, result) vim.keymap.set(mode, key, result, { noremap = true, silent = true }) end
 local opts = { noremap = true, silent = true }
 
+local pw_functions = require("pw.functions")
+
 local keymaps = {
     {'i', 'kj', '<Esc>l'},
     {'i', '<C-j>', '<Esc>l'},
@@ -54,6 +56,7 @@ local keymaps = {
     {"n", "<leader>fc", '<cmd>Telescope commands<CR>', opts},
     {"n", "<leader>fk", '<cmd>Telescope file_browser<CR>', opts},
     {"n", "<leader>fl", function() require("telescope.builtin").find_files({cwd = require("telescope.utils").buffer_dir()}) end, opts},
+    {"n", "<leader>bd", function() pw_functions.del_other_bufs() end, opts},
 }
 
 for _, keymap in ipairs(keymaps) do
