@@ -53,7 +53,9 @@ local keymaps = {
     {"n", "<leader>ds", '<cmd>Telescope lsp_document_symbols<cr>', opts},
     {"n", "<leader>fc", '<cmd>Telescope commands<CR>', opts},
     {"n", "<leader>fk", '<cmd>Telescope file_browser<CR>', opts},
+    {"n", "<leader>fl", function() require("telescope.builtin").find_files({cwd = require("telescope.utils").buffer_dir()}) end, opts},
 }
+
 for _, keymap in ipairs(keymaps) do
     vim.keymap.set(unpack(keymap))
 end 

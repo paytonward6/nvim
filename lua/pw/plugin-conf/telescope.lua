@@ -14,9 +14,6 @@ require('telescope').setup{
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
-    find_files = {
-        theme = "dropdown"
-    }
     -- picker_name = {
     --   picker_config_key = value,
     --   ...

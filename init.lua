@@ -15,9 +15,8 @@ vim.opt.filetype = "on"
 --vim.g.sort_by = "exten"
 --vim.g.netrw_banner = 0
 
-vim.cmd("set clipboard+=unnamedplus")
+vim.opt.clipboard:append("unnamedplus")
 
-require("pw") -- load my lua configs
 
 -- Colors
 vim.opt.termguicolors = true
@@ -25,13 +24,12 @@ vim.opt.background = "dark"
 
 -- COLORSCHEME
 --vim.cmd('colorscheme catppuccin')
-vim.cmd('colorscheme tokyonight-moon')
+vim.cmd.colorscheme('tokyonight-moon')
 vim.cmd('highlight VertSplit guifg=#aab4be')
 
 
 -- Behaviors
 -- Make 'H' open help in vertical split
-vim.cmd("cnoreabbrev H vert h")
 vim.opt.belloff = "all" -- NO BELLS!
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- ins-completion how vsnip likes it
 vim.opt.swapfile = true -- no swap files
@@ -87,5 +85,6 @@ vim.opt.hlsearch = true -- highlight matching text
 vim.opt.incsearch = true -- update results while I type
 
 --vim.cmd('autocmd BufNewFile,BufRead *.typ set filetype=typst')
-x = {1,2,3,4}
+
+require("pw") -- load my lua configs
 

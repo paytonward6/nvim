@@ -53,7 +53,7 @@ local plugins = {
 
     "p00f/nvim-ts-rainbow", -- rainbow parentheses, brackets, braces
 
-    --use("L3MON4D3/LuaSnip")
+    "L3MON4D3/LuaSnip",
 
     {
       "akinsho/toggleterm.nvim", tag = '*', config = function()
@@ -81,17 +81,7 @@ local plugins = {
 
     "zah/nim.vim",-- syntax highlighting for nim
 
-    --use 'simrat39/rust-tools.nvim'
-
     {'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }},
-
-    --use {
-    --  'kyazdani42/nvim-tree.lua',
-    --  requires = {
-    --    'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    --  },
-    --  tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    --}
 
     {
       'romgrk/barbar.nvim',
@@ -111,13 +101,10 @@ local plugins = {
 
     'ThePrimeagen/vim-be-good', -- for nvim practice
 
-    --use 'Olical/conjure' -- interactive code evaluation (for LISPs and Python)
-
     'jbyuki/venn.nvim', -- for drawing UTF-8 diagrams in nvim
 
     'lukas-reineke/indent-blankline.nvim',
 
-    --use ' vimwiki/vimwiki'|
 }
 
 -- Bootstrap packer if necessary
