@@ -32,7 +32,7 @@ vim.cmd('highlight VertSplit guifg=#aab4be')
 -- Make 'H' open help in vertical split
 vim.opt.belloff = "all" -- NO BELLS!
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- ins-completion how vsnip likes it
-vim.opt.swapfile = true -- no swap files
+vim.opt.swapfile = false -- no swap files
 vim.opt.inccommand = "nosplit" -- preview %s commands live as I type
 vim.opt.undofile = true -- keep track of my 'undo's between sessions
 vim.opt.grepprg = "rg --vimgrep --smart-case --no-heading" -- search with rg
