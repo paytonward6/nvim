@@ -1,5 +1,4 @@
--- Mapping helper
-local map = function(mode, key, result) vim.keymap.set(mode, key, result, { noremap = true, silent = true }) end
+
 local opts = { noremap = true, silent = true }
 
 local pw_functions = require("pw.functions")
@@ -17,6 +16,8 @@ local keymaps = {
     {"n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }},
 
     {"n", "<leader>gs", "<Cmd>vertical Git<CR>"},
+    {"n", "<leader>gg", ":Git "},
+    {"t", "<Esc>", "<C-\\><C-n>"},
 
     {"n", "<leader>ms", "<Cmd>LspStart<CR>"},
     {"n", "<leader>mr", "<Cmd>LspRestart<CR>"},
