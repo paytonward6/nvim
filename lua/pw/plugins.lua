@@ -1,3 +1,5 @@
+local enable_optional = false
+
 local plugins = {
     "wbthomason/packer.nvim",
     "nvim-lua/popup.nvim", -- popup windows
@@ -8,6 +10,7 @@ local plugins = {
         requires = { {'nvim-lua/plenary.nvim'} }
     },
 
+    "guns/vim-sexp",
     'Olical/conjure',
     'tpope/vim-fugitive',
 
@@ -21,7 +24,6 @@ local plugins = {
         requires = {{'nvim-lua/plenary.nvim'}}
     },
 
-    'kaarmu/typst.vim',
     "nvim-telescope/telescope-file-browser.nvim",
 
     -- LSP and Completion
@@ -37,8 +39,6 @@ local plugins = {
     'hrsh7th/cmp-path',
     'rcarriga/nvim-dap-ui',
 
-    'jbyuki/nabla.nvim',
-
     -- Themes
     "sainnhe/sonokai",
     "Th3Whit3Wolf/space-nvim",
@@ -53,17 +53,8 @@ local plugins = {
     },
 
     "p00f/nvim-ts-rainbow", -- rainbow parentheses, brackets, braces
-
     "L3MON4D3/LuaSnip",
-
-    {
-      "akinsho/toggleterm.nvim", tag = '*', config = function()
-          require("toggleterm").setup()
-      end
-    },
-
     "folke/which-key.nvim",
-
     {
         "windwp/nvim-autopairs", -- auto close sybmols
         config = function()
@@ -73,26 +64,12 @@ local plugins = {
         end,
     },
 
-
-    'petertriho/nvim-scrollbar',
-
-    'echasnovski/mini.nvim',
-
     'folke/tokyonight.nvim',
-
     "zah/nim.vim",-- syntax highlighting for nim
-
-    {'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }},
-
     {
       'romgrk/barbar.nvim',
       requires = {'kyazdani42/nvim-web-devicons'}
     },
-
-    'nvim-orgmode/orgmode',
-
-    -- Table Mode
-    "dhruvasagar/vim-table-mode",
 
     -- 0.5 features (lsp + treesitter)
     {
@@ -100,13 +77,24 @@ local plugins = {
         run = ":TSUpdate",
     },
 
-    'ThePrimeagen/vim-be-good', -- for nvim practice
-
-    'jbyuki/venn.nvim', -- for drawing UTF-8 diagrams in nvim
-
     'lukas-reineke/indent-blankline.nvim',
-
 }
+
+local optional_plugins = {
+    'jbyuki/venn.nvim', -- for drawing UTF-8 diagrams in nvim
+    'ThePrimeagen/vim-be-good', -- for nvim practice
+    -- Table Mode
+    "dhruvasagar/vim-table-mode",
+    'echasnovski/mini.nvim',
+    'jbyuki/nabla.nvim',
+    'kaarmu/typst.vim',
+    'nvim-orgmode/orgmode',
+}
+
+if vim.fn.has("mac") or enable_optional then
+    plugins = vim.list_extend(plugins, optional_plugins)
+end
+
 
 -- Bootstrap packer if necessary
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
