@@ -9,6 +9,7 @@ local plugins = {
     },
 
     'Olical/conjure',
+    'tpope/vim-fugitive',
 
     {
         'stevearc/oil.nvim', config = function()
