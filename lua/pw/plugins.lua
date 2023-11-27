@@ -91,7 +91,7 @@ local optional_plugins = {
     'nvim-orgmode/orgmode',
 }
 
-if vim.fn.has("mac") or enable_optional then
+if vim.fn.has("mac") == 1 or enable_optional then
     plugins = vim.list_extend(plugins, optional_plugins)
 end
 

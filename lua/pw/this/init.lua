@@ -7,23 +7,63 @@ end
 
 local popup = require("plenary.popup")
 
-M.dothat = function()
-    local lines = {"hello", "world"}
+local config = {
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    width = 60,
+    height = 10,
+}
+
+
+M.dothat = function(opts)
+    local lines = {}
+    for i, line in ipairs(opts.fargs) do
+        lines[i] = line
+    end
+
     local bufnr = vim.api.nvim_create_buf(false, false)
+
+    local borderchars = config.borderchars
+    local width = config.width
+    local height = config.height
+
+    local line = math.floor(((vim.o.lines - height) / 2) - 1)
+    local col = math.floor((vim.o.columns - width) / 2)
+    print(line, col)
+
     id, win = popup.create(bufnr, {
-        title = "Harpoon",
-        highlight = "HarpoonWindow",
-        line = math.floor(((vim.o.lines - 60) / 2) - 1),
-        col = math.floor((vim.o.columns - 60) / 2),
-        minwidth = 60,
-        minheight = 10,
+        title = "This",
+        highlight = "",
+        line = line,
+        col = col,
+        minwidth = width,
+        minheight = height,
+        borderchars = borderchars,
     })
+
+    vim.api.nvim_win_set_option(
+        win.border.win_id,
+        "winhl",
+        "Normal:This"
+    )
+
+    local map_event = function(line_content)
+        local curr_line_num = vim.api.nvim_win_get_cursor(id)[1]
+        return line_content[curr_line_num]
+    end
+
+    local run = function(line_content)
+        return io.popen(map_event(line_content)):read("*l")
+    end
 
     vim.api.nvim_buf_set_lines(bufnr, 0, #lines, false, lines)
     vim.keymap.set("n", "q", "<cmd>q<cr>", {buffer = bufnr})
+    vim.keymap.set("n", "<cr>", function() vim.print(run(lines)) end, {buffer = bufnr})
+
+    vim.bo.modifiable = false
+    vim.bo.modified = false
 end
 
 vim.api.nvim_create_user_command("Asdf", M.asdf, {nargs = 1})
-vim.api.nvim_create_user_command("Dothat", M.dothat, {})
+vim.api.nvim_create_user_command("Dothat", M.dothat, {nargs = "*"})
 
 return M
