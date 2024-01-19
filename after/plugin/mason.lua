@@ -136,9 +136,7 @@ lspconfig.clangd.setup{
 
 lspconfig.gopls.setup {
     capabilities = capabilities,
-    on_attach = function()
-        custom_attach(client, bufnr)
-    end,
+    on_attach = custom_attach(client, bufnr),
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
     root_idr = util.root_pattern("go.work", "go.mod", ".git"),

@@ -56,15 +56,14 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "auto" -- show the sign column if necessary
 vim.opt.cursorline = false -- don't highlight current line
 vim.opt.list = true -- show list chars
-vim.opt.listchars = {
+vim.opt.listchars:append({
     -- these list chars
-    tab = "<->",
     nbsp = "␣",
     extends = "…",
     precedes = "…",
     trail = "·",
     --multispace = "·",
-}
+})
 vim.opt.scrolloff = 5 -- padding between cursor and top/bottom of window
 vim.opt.foldlevel = 1 -- allow folding the whole way down
 vim.opt.foldlevelstart = 99 -- open files with all folds open

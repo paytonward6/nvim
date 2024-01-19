@@ -103,3 +103,8 @@ vim.api.nvim_create_autocmd({"BufReadPre", "BufNewFile"}, {
         vim.opt.listchars:append({tab = "  "})
     end
 })
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+    pattern = {"*.go"},
+    command = "GoFmt",
+})
