@@ -15,7 +15,6 @@ require("nvim-treesitter.configs").setup({
         "lua",
         "css",
         "scss",
-        "yaml",
         "c",
         "rust",
         "java",

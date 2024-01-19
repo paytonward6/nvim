@@ -96,3 +96,10 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     command = "setfiletype python"
 })
 --vim.cmd("augroup filetypedetect au! BufRead,BufNewFile *.sage,*.spyx,*.pyx setfiletype py augroup END")
+
+vim.api.nvim_create_autocmd({"BufReadPre", "BufNewFile"}, {
+    pattern = {"*.go"},
+    callback = function()
+        vim.opt.listchars:append({tab = "  "})
+    end
+})

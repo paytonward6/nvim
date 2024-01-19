@@ -56,6 +56,11 @@ local plugins = {
     "L3MON4D3/LuaSnip",
     "folke/which-key.nvim",
     {
+        "ray-x/go.nvim", config = function()
+            require("go").setup()
+        end
+    },
+    {
         "windwp/nvim-autopairs", -- auto close sybmols
         config = function()
             require("nvim-autopairs").setup({

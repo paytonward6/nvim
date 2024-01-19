@@ -63,7 +63,12 @@ M.dothat = function(opts)
     vim.bo.modified = false
 end
 
+M.black = function()
+    vim.api.nvim_command("%!black - -q")
+end
+
 vim.api.nvim_create_user_command("Asdf", M.asdf, {nargs = 1})
 vim.api.nvim_create_user_command("Dothat", M.dothat, {nargs = "*"})
+vim.api.nvim_create_user_command("Black", M.black, {nargs = 0})
 
 return M
