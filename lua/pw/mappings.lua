@@ -15,7 +15,7 @@ local keymaps = {
     {'n', '<leader>th', ':noh<CR>'},
     {"n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }},
 
-    {"n", "<leader>gs", "<Cmd>vertical Git<CR>"},
+    {"n", "<leader>gh", "<Cmd>vertical Git<CR>"},
     {"n", "<leader>gg", ":Git "},
     {"t", "<Esc>", "<C-\\><C-n>"},
 

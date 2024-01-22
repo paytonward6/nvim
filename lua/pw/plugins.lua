@@ -11,7 +11,7 @@ local plugins = {
     },
 
     "guns/vim-sexp",
-    'Olical/conjure',
+    --'Olical/conjure',
     'tpope/vim-fugitive',
 
     {
@@ -83,6 +83,7 @@ local plugins = {
     },
 
     'lukas-reineke/indent-blankline.nvim',
+    'jpalardy/vim-slime',
 }
 
 local optional_plugins = {

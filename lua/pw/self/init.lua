@@ -1,0 +1,1 @@
+require("pw.self.this")

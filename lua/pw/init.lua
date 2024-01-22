@@ -5,4 +5,4 @@ local no_plugins = require("pw.plugins") -- plugins
 
 require("pw.snippets")
 
-require("pw.this")
+require("pw.self")
