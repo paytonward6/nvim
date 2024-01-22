@@ -27,6 +27,9 @@ local keymaps = {
     {"n", "<leader>vm", "<Cmd>mkview<CR>"},
     {"n", "<leader>vl", "<Cmd>loadview<CR>"},
 
+    {"n", "<leader>ee", ":Wezlime<CR>"},
+    {"v", "<leader>ee", ":Wezlime<CR>"},
+
     -- Buffer Keymaps
     -- Move to previous/next buffer
     {'n', '<leader>{', '<Cmd>BufferPrevious<CR>', opts},
