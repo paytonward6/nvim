@@ -163,7 +163,7 @@ lspconfig.tailwindcss.setup({
 })
 
 lspconfig.lua_ls.setup({
-    autostart = false,
+    autostart = true,
     capabilities = capabilities,
     on_attach = custom_attach,
     settings = {
