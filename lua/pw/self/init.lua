@@ -1,2 +1,4 @@
-require("pw.self.this")
-require("pw.self.black")
+local path = "pw.self."
+require(path.."this")
+require(path.."black")
+require(path.."nvim-wezlime")
