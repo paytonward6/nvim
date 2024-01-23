@@ -113,7 +113,6 @@ M.wezlime = function(args)
         text = M.get_cur_block()
     elseif args.range > 0 then
         text = vim.api.nvim_buf_get_lines(0, args.line1 - 1, args.line2, false)
-        vim.print(text)
     end
 
     if text ~= nil then
