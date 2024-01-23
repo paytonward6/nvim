@@ -1,10 +1,5 @@
 -- Harpoon Configuration --
 
--- Keymaps --
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<leader>ha", '<cmd>lua require("harpoon.mark").add_file()<CR>', opts)
-vim.keymap.set("n", "<leader>hr", '<cmd>lua require("harpoon.mark").rm_file()<CR>', opts)
-vim.keymap.set("n", "<leader>hh", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 
 -- Global Settings
 

@@ -29,6 +29,10 @@ local keymaps = {
     {"n", "<leader>ee", ":Wezlime<CR>"},
     {"v", "<leader>ee", ":Wezlime<CR>"},
 
+    {"n", "<leader>ka", '<cmd>lua require("harpoon.mark").add_file()<CR>', opts},
+    {"n", "<leader>kr", '<cmd>lua require("harpoon.mark").rm_file()<CR>', opts},
+    {"n", "<leader>kj", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', opts},
+
     -- Buffer Keymaps
     -- Move to previous/next buffer
     {'n', '<leader>{', '<Cmd>BufferPrevious<CR>', opts},
