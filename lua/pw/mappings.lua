@@ -9,7 +9,6 @@ local keymaps = {
     {'n', '<C-K>', '<C-z>'}, -- allows suspension of nvim via homerow
     {'n', '<Space>w', '<C-w>'}, -- for window management
     {'n', '<C-s>', '<Cmd>update<CR>'},
-    {'n', '<leader>lsp', '<Cmd>LspStart<CR>'},
     {'i', '<C-A>', '<ESC>I'},
     {'n', '<leader><tab>t',':vsplit term://bash<CR>'},
     {'n', '<leader>th', ':noh<CR>'},
