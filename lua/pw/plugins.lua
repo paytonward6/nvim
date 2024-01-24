@@ -1,13 +1,13 @@
 local enable_optional = false
 
 local plugins = {
-    "wbthomason/packer.nvim",
+    "nvim-lua/plenary.nvim",
     "nvim-lua/popup.nvim", -- popup windows
     "farmergreg/vim-lastplace",
     "kyazdani42/nvim-web-devicons",
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        dependencies = {'nvim-lua/plenary.nvim'},
     },
 
     "guns/vim-sexp",
@@ -21,7 +21,7 @@ local plugins = {
     },
     {
         "ThePrimeagen/harpoon",
-        requires = {{'nvim-lua/plenary.nvim'}}
+        dependencies = {'nvim-lua/plenary.nvim'}
     },
 
     "nvim-telescope/telescope-file-browser.nvim",
@@ -49,7 +49,7 @@ local plugins = {
     -- Status Bar
     {
       'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+      dependencies = { 'kyazdani42/nvim-web-devicons' },
     },
 
     "p00f/nvim-ts-rainbow", -- rainbow parentheses, brackets, braces
@@ -73,7 +73,7 @@ local plugins = {
     "zah/nim.vim",-- syntax highlighting for nim
     {
       'romgrk/barbar.nvim',
-      requires = {'kyazdani42/nvim-web-devicons'}
+      dependencies = {'kyazdani42/nvim-web-devicons'}
     },
 
     -- 0.5 features (lsp + treesitter)
@@ -95,7 +95,7 @@ local optional_plugins = {
     'jbyuki/nabla.nvim',
     'kaarmu/typst.vim',
     'nvim-orgmode/orgmode',
-    "~/Code/Lua/nvim-wezlime"  -- local wezlime
+    { dir = "~/Code/Lua/nvim-wezlime" },  -- local wezlime
 }
 
 if vim.fn.has("mac") == 1 or enable_optional then
@@ -107,32 +107,4 @@ else
     plugins = vim.list_extend(plugins, pub_plugins)
 end
 
-
--- Bootstrap packer if necessary
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local packer_bootstrap = false
---local lsp_filetypes = require('ag.lsp_config')
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    packer_bootstrap = vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-end
-
--- Init setup
-vim.cmd("packadd packer.nvim") -- load packer
-local packer = require("packer")
-
-packer.init({
-    auto_reload_compiled = true,
-})
-
-packer.startup(function(use)
-    for _, plugin in pairs(plugins) do
-        use(plugin)
-    end
-
-    -- Grab all packages if we're setting up for the first time
-    if packer_bootstrap then packer.sync() end
-end)
--- NOTE: If :h <plugin> does not work, run :helptags ALL to add them
-
-return packer_bootstrap
+return plugins
