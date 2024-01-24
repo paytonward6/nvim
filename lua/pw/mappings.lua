@@ -26,8 +26,8 @@ local keymaps = {
     {"n", "<leader>vm", "<Cmd>mkview<CR>"},
     {"n", "<leader>vl", "<Cmd>loadview<CR>"},
 
-    {"n", "<leader>ee", ":Wezlime<CR>"},
-    {"v", "<leader>ee", ":Wezlime<CR>"},
+    {{"n", "v"}, "<leader>ee", ":Wezlime send<CR>", opts},
+    {{"n", "v"}, "<leader>e.", ":Wezlime send_line<CR>", opts},
 
     {"n", "<leader>ka", '<cmd>lua require("harpoon.mark").add_file()<CR>', opts},
     {"n", "<leader>kr", '<cmd>lua require("harpoon.mark").rm_file()<CR>', opts},

@@ -95,10 +95,16 @@ local optional_plugins = {
     'jbyuki/nabla.nvim',
     'kaarmu/typst.vim',
     'nvim-orgmode/orgmode',
+    "~/Code/Lua/nvim-wezlime"  -- local wezlime
 }
 
 if vim.fn.has("mac") == 1 or enable_optional then
     plugins = vim.list_extend(plugins, optional_plugins)
+else
+    local pub_plugins = {
+        "paytonward6/nvim-wezlime",
+    }
+    plugins = vim.list_extend(plugins, pub_plugins)
 end
 
 
