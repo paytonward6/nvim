@@ -28,6 +28,7 @@
   "orgmode": { "branch": "master", "commit": "f6859954e2688de91030f03711e8ae84051bd63a" },
   "plenary.nvim": { "branch": "master", "commit": "663246936325062427597964d81d30eaa42ab1e4" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
+  "refactoring.nvim": { "branch": "master", "commit": "f4546284059f7dc01f65be93d03f6c850fd2aba1" },
   "sonokai": { "branch": "master", "commit": "42822f8f9b3a5088f05cf72a0aa1477598ad1a40" },
   "space-nvim": { "branch": "main", "commit": "6537fc7188a93607c40aaad7c0f45a3c1eb40b99" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "6f735a63dc24b9aed527cd505a31864223c8a6d8" },

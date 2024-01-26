@@ -1,10 +1,5 @@
 M = {}
 
-M.asdf = function(opts)
-    this = opts.fargs[1]
-    print(this * this)
-end
-
 local popup = require("plenary.popup")
 
 local config = {
@@ -13,13 +8,7 @@ local config = {
     height = 10,
 }
 
-
-M.dothat = function(opts)
-    local lines = {}
-    for i, line in ipairs(opts.fargs) do
-        lines[i] = line
-    end
-
+local function create_window()
     local bufnr = vim.api.nvim_create_buf(false, false)
 
     local borderchars = config.borderchars
@@ -28,9 +17,8 @@ M.dothat = function(opts)
 
     local line = math.floor(((vim.o.lines - height) / 2) - 1)
     local col = math.floor((vim.o.columns - width) / 2)
-    print(line, col)
 
-    id, win = popup.create(bufnr, {
+    local id, win = popup.create(bufnr, {
         title = "This",
         highlight = "",
         line = line,
@@ -45,9 +33,17 @@ M.dothat = function(opts)
         "winhl",
         "Normal:This"
     )
+    return {bufnr = bufnr, id = id, win = win}
+end
+
+M.dothat = function(opts)
+
+    local lines = opts.fargs
+
+    local window = create_window()
 
     local map_event = function(line_content)
-        local curr_line_num = vim.api.nvim_win_get_cursor(id)[1]
+        local curr_line_num = vim.api.nvim_win_get_cursor(window.id)[1]
         return line_content[curr_line_num]
     end
 
@@ -55,15 +51,14 @@ M.dothat = function(opts)
         return io.popen(map_event(line_content)):read("*l")
     end
 
-    vim.api.nvim_buf_set_lines(bufnr, 0, #lines, false, lines)
-    vim.keymap.set("n", "q", "<cmd>q<cr>", {buffer = bufnr})
-    vim.keymap.set("n", "<cr>", function() vim.print(run(lines)) end, {buffer = bufnr})
+    vim.api.nvim_buf_set_lines(window.bufnr, 0, #lines, false, lines)
+    vim.keymap.set("n", "q", "<cmd>q<cr>", {buffer = window.bufnr})
+    vim.keymap.set("n", "<cr>", function() vim.print(run(lines)) end, {buffer = window.bufnr})
 
     vim.bo.modifiable = false
     vim.bo.modified = false
 end
 
-vim.api.nvim_create_user_command("Asdf", M.asdf, {nargs = 1})
 vim.api.nvim_create_user_command("Dothat", M.dothat, {nargs = "*"})
 
 return M

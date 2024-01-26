@@ -11,6 +11,13 @@ local plugins = {
     },
 
     "guns/vim-sexp",
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+          "nvim-treesitter/nvim-treesitter",
+        }
+    },
     --'Olical/conjure',
     'tpope/vim-fugitive',
 
