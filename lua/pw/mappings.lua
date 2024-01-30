@@ -13,6 +13,7 @@ local keymaps = {
     {'n', '<leader><tab>t',':vsplit term://bash<CR>'},
     {'n', '<leader>th', ':noh<CR>'},
     {"n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }},
+    {"n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" }},
 
     {"n", "<leader>gh", "<Cmd>vertical Git<CR>"},
     {"n", "<leader>gg", ":Git "},
