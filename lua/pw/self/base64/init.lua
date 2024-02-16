@@ -6,7 +6,7 @@ function M.main(base64_arg)
     local split_line  = vim.fn.split(line, ":")
     local key = split_line[1]
     local value = vim.fn.trim(split_line[2])
-    local command = "echo ".. "'" .. value .. "'" .. " | base64"
+    local command = "echo -n ".. vim.fn.shellescape(value) .. " | base64"
 
     if base64_arg ==  "d" then
         command = command .. " -d"
