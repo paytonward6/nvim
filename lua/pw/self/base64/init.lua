@@ -1,8 +1,21 @@
-M = {}
+local M = {}
+
+local function split(line, delim)
+    local init = vim.fn.split(line, delim)
+    local key = init[1]
+    local value = ""
+    if #init > 2 then
+        table.remove(init, 1)
+        value = vim.fn.join(init, delim)
+    else
+        value = init[2]
+    end
+    return {key, value}
+end
 
 
 function M.base64_line(line, base64_arg)
-    local split_line  = vim.fn.split(line, ":")
+    local split_line  = split(line, ":")
     local key = split_line[1]
     local value = vim.fn.trim(split_line[2])
     local command = "echo -n ".. vim.fn.shellescape(value) .. " | base64"
