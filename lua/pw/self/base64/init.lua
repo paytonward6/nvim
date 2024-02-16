@@ -1,8 +1,7 @@
 M = {}
 
 
-function M.main(base64_arg)
-    local line = vim.api.nvim_get_current_line()
+function M.base64_line(line, base64_arg)
     local split_line  = vim.fn.split(line, ":")
     local key = split_line[1]
     local value = vim.fn.trim(split_line[2])
@@ -13,16 +12,26 @@ function M.main(base64_arg)
     end
 
     local decoded = vim.fn.system(command)
-    local new_current_line = key .. ": " .. vim.fn.trim(decoded)
-    vim.api.nvim_set_current_line(new_current_line)
+    return key .. ": " .. vim.fn.trim(decoded)
 end
 
 
-function M.base64(context)
-    M.main(context.args)
+function M.base64(start, last, base64_arg)
+    local lines = vim.api.nvim_buf_get_lines(0, start-1, last, false)
+
+    local to_output = {}
+    for _, line in ipairs(lines) do
+        table.insert(to_output, M.base64_line(line, base64_arg))
+    end
+    vim.api.nvim_buf_set_lines(0, start-1, last, false, to_output)
 end
 
-vim.api.nvim_create_user_command("Base64", M.base64, {
+
+function M.main(context)
+    M.base64(context.line1, context.line2, context.args)
+end
+
+vim.api.nvim_create_user_command("Base64", M.main, {
     nargs = "?",
     range = true,
 })
