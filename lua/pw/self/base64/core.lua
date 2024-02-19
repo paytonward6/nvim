@@ -15,7 +15,7 @@ local function to_bin(num,bits)
     return t
 end
 
-
+---@return table
 local function char_to_bin(char)
     local result = nil
 
@@ -43,7 +43,7 @@ local function append(tbl, to_append)
     end
 end
 
-local function bin_arr_to_int(tbl)
+local function bin_to_int(tbl)
     local result = 0
     local shift = 0
     for i=#tbl,1,-1 do
@@ -65,6 +65,7 @@ local function chunk(tbl, size)
 end
 
 function M.decode(input)
+    -- Algorithm inspired by https://rosettacode.org/wiki/Base64_decode_data#Rust
     local result = {}
     for char in input:gmatch(".") do
         if char == "=" then
@@ -79,14 +80,12 @@ function M.decode(input)
 
     local to_return = {}
     for _, i in ipairs(chunks) do
-        local to_int = bin_arr_to_int(i)
+        local to_int = bin_to_int(i)
         if to_int ~= 0 then
             table.insert(to_return, string.char(to_int))
         end
     end
     return table.concat(to_return)
 end
-
-vim.print(M.decode("bXkgbmFtZSBpcyBjbGV2ZWxhbmQgYnJvd24gISA6IC8gLWQ="))
 
 return M
