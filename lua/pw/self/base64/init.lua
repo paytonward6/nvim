@@ -1,3 +1,4 @@
+local core = require("pw.self.base64.core")
 local M = {}
 
 local function split(line, delim)

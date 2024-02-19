@@ -5,5 +5,4 @@ require("pw.autocmd")
 
 require("pw.snippets")
 
-vim.print("this")
 require("pw.self")
