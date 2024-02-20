@@ -93,7 +93,7 @@ local plugins = {
     'jpalardy/vim-slime',
 }
 
-local optional_plugins = {
+local mac_plugins = {
     'jbyuki/venn.nvim', -- for drawing UTF-8 diagrams in nvim
     'ThePrimeagen/vim-be-good', -- for nvim practice
     -- Table Mode
@@ -103,16 +103,18 @@ local optional_plugins = {
     'kaarmu/typst.vim',
     'nvim-orgmode/orgmode',
     { dir = "~/Code/Lua/nvim-wezlime" },  -- local wezlime
-    { dir = "~/Code/Lua/base64.nvim/" },  -- local wezlime
+    { dir = "~/Code/Lua/base64.nvim/" },  -- local base64
+}
+
+local linux_plugin = {
+    "paytonward6/nvim-wezlime",
+    "paytonward6/base64.nvim",
 }
 
 if vim.fn.has("mac") == 1 or enable_optional then
-    plugins = vim.list_extend(plugins, optional_plugins)
+    plugins = vim.list_extend(plugins, mac_plugins)
 else
-    local pub_plugins = {
-        "paytonward6/nvim-wezlime",
-    }
-    plugins = vim.list_extend(plugins, pub_plugins)
+    plugins = vim.list_extend(plugins, linux_plugin)
 end
 
 return plugins
