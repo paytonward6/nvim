@@ -103,6 +103,7 @@ local optional_plugins = {
     'kaarmu/typst.vim',
     'nvim-orgmode/orgmode',
     { dir = "~/Code/Lua/nvim-wezlime" },  -- local wezlime
+    { dir = "~/Code/Lua/base64.nvim/" },  -- local wezlime
 }
 
 if vim.fn.has("mac") == 1 or enable_optional then
