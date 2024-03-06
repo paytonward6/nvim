@@ -36,6 +36,7 @@ vim.opt.clipboard:append("unnamedplus")
 -- Colors
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+vim.g.markdown_fenced_languages = {"python=python", "lua=lua", "rust=rust", "go=go", "shell=bash", "json=javascript"}
 
 -- COLORSCHEME
 --vim.cmd('colorscheme catppuccin')

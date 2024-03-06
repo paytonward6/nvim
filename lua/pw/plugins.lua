@@ -23,7 +23,12 @@ local plugins = {
 
     {
         'stevearc/oil.nvim', config = function()
-            require("oil").setup()
+            require("oil").setup({
+                keymaps = {
+                    ["<C-p>"] = false,
+                    ["<C-y>"] = "actions.preview",
+                }
+            })
         end
     },
     {
