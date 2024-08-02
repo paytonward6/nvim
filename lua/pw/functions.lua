@@ -12,4 +12,13 @@ M.del_other_bufs = function()
     end
 end
 
+M.current_file = function()
+    vim.cmd('read! echo %:p:.')
+end
+
+M.copy_current_file = function()
+    M.current_file()
+    vim.cmd.norm('yyu')
+end
+
 return M

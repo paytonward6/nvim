@@ -73,7 +73,10 @@ local keymaps = {
     {"n", "<leader>fc", '<cmd>Telescope commands<CR>', opts},
     {"n", "<leader>fk", '<cmd>Telescope file_browser<CR>', opts},
     {"n", "<leader>fl", function() require("telescope.builtin").find_files({cwd = require("telescope.utils").buffer_dir()}) end, opts},
-    {"n", "<leader>bd", function() pw_functions.del_other_bufs() end, opts},
+    {"n", "<leader>fn", function() require("telescope.builtin").find_files({search_dirs= {"~/.config/nvim"}}) end, opts},
+    {"n", "<leader>bd", pw_functions.del_other_bufs, opts},
+    {"n", "<leader>cf", pw_functions.current_file, opts},
+    {"n", "<leader>cy", pw_functions.copy_current_file, opts},
 }
 
 for _, keymap in ipairs(keymaps) do

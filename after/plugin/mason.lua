@@ -9,26 +9,26 @@ local util = require("lspconfig/util")
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Keymaps
-local custom_attach = function(client, bufnr)
-    local keymap_opts = { buffer = bufnr, silent = true, noremap = true }
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, keymap_opts)
-    vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, keymap_opts)
-    vim.keymap.set("n", "<leader>gs", vim.lsp.buf.signature_help, keymap_opts)
-    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, keymap_opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, keymap_opts)
-    vim.keymap.set("n", "<leader>bs", vim.lsp.buf.document_symbol, keymap_opts)
-    vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, keymap_opts)
-    vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, keymap_opts)
-    vim.keymap.set("n", "<leader>dd", vim.diagnostic.disable, keymap_opts)
-    vim.keymap.set("n", "<leader>de", vim.diagnostic.enable, keymap_opts)
-    vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, keymap_opts)
-    vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, keymap_opts)
-    vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, keymap_opts)
-end
-
+local custom_attach = require("pw.lsp").custom_attach
 -- Language Setups
+--
+
+lspconfig.elixirls.setup {
+    cmd = {vim.fn.resolve(vim.fn.stdpath "data" .. "/mason/packages/elixir-ls/language_server.sh")},
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+}
 
 lspconfig.pyright.setup{
+    capabilities = capabilities,
+    on_attach = function()
+        custom_attach(client, bufnr)
+    end,
+} -- Connect to server
+
+lspconfig.gleam.setup{
     capabilities = capabilities,
     on_attach = function()
         custom_attach(client, bufnr)
@@ -50,12 +50,12 @@ lspconfig.clojure_lsp.setup{
 } -- Connect to server
 
 
-lspconfig.tsserver.setup{
-    capabilities = capabilities,
-    on_attach = function()
-        custom_attach(client, bufnr)
-    end,
-} -- Connect to server
+--lspconfig.tsserver.setup{
+--    capabilities = capabilities,
+--    on_attach = function()
+--        custom_attach(client, bufnr)
+--    end,
+--} -- Connect to server
 
 lspconfig.ltex.setup{
     autostart = false,
@@ -67,13 +67,14 @@ lspconfig.ltex.setup{
 
 lspconfig.cssls.setup{
     capabilities = capabilities,
-    filetypes={"css", "scss", "less", "html"},
+    filetypes={"css", "scss", "less", "html", "heex"},
     on_attach = function()
         custom_attach(client, bufnr)
     end,
 } -- Connect to server
 
 lspconfig.html.setup{
+    filetypes = {"html", "heex"},
     capabilities = capabilities,
     on_attach = function()
         custom_attach(client, bufnr)
@@ -93,13 +94,6 @@ lspconfig.jdtls.setup{
     on_attach = function()
         custom_attach(client, bufnr)
     end,
-}
-
-lspconfig.ruby_ls.setup{
-    --capabilities = capabilities,
-    --on_attach = function()
-    --    custom_attach(client, bufnr)
-    --end,
 }
 
 lspconfig.rust_analyzer.setup({

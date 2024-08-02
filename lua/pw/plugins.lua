@@ -85,7 +85,8 @@ local plugins = {
     "zah/nim.vim",-- syntax highlighting for nim
     {
       'romgrk/barbar.nvim',
-      dependencies = {'kyazdani42/nvim-web-devicons'}
+      dependencies = {'kyazdani42/nvim-web-devicons'},
+        enabled = false,
     },
 
     -- 0.5 features (lsp + treesitter)
