@@ -1,3 +1,7 @@
-.notes.txt
-/plugin/packer_compiled.lua
+tags
+test.sh
 .luarc.json
+nvim
+
+spell/
+lazy-lock.json
