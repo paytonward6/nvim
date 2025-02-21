@@ -136,6 +136,7 @@ return {
       gopls = {},
       pyright = {},
       lexical = {},
+      rust_analyzer = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
